@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal start_move
+
 @onready var movement_validation : RayCast2D = $MovementValidation
 @onready var movement_tween : Node = $MovementTween
 @onready var sprite_2d : AnimatedSprite2D = $Sprite2D
@@ -30,6 +32,7 @@ func _process(_delta : float) -> void:
 func _physics_process(_delta : float) -> void:
 	if movement_validation.validade_movement(direction * grid_size) and can_move and direction != Vector2.ZERO:
 		can_move = false
+		emit_signal("start_move")
 		movement_tween.run(self, global_position + direction * grid_size)
 		movement_tween.tween.finished.connect(on_movement_tween_finished)
 

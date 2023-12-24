@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w4tng7pv2ot2"
-path="res://.godot/imported/aranha1.png-0df422d8b3384328c07b1e8cb1f86f34.ctex"
+uid="uid://rqlxn4ibrmap"
+path="res://.godot/imported/enemy_idle.png-847eef958b42374f648b9b022dbdb47f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://refs/chars/ind/aranha1.png"
-dest_files=["res://.godot/imported/aranha1.png-0df422d8b3384328c07b1e8cb1f86f34.ctex"]
+source_file="res://refs/enemy/enemy_idle.png"
+dest_files=["res://.godot/imported/enemy_idle.png-847eef958b42374f648b9b022dbdb47f.ctex"]
 
 [params]
 
