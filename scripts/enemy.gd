@@ -21,15 +21,19 @@ func wander() -> void:
 
 	old_position = -direction
 	
+	movement_tween.run(self,global_position + direction * grid_size)
+	movement_tween.tween.finished.connect(on_movement_tween_finished)
+	
+	valid_directions.clear()
+	
+	
 	if (direction.x == 0):
 		return
 	
 	var isRight = direction.x < 0
 	sprite_2d.flip_h = isRight
+	
 
-	movement_tween.run(self,global_position + direction * grid_size)
-	movement_tween.tween.finished.connect(on_movement_tween_finished)
-	valid_directions.clear()
 
 
 func on_movement_tween_finished() -> void:

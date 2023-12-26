@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqtygme3qvsse"]
+
+[ext_resource type="Script" path="res://scripts/FMovementTween.gd" id="1_mhrx7"]
+
+[node name="FMovementTween" type="Node"]
+script = ExtResource("1_mhrx7")
