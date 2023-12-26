@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddub6o35xbp76"]
+[gd_scene load_steps=10 format=3 uid="uid://ddub6o35xbp76"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_ftf7f"]
 [ext_resource type="Texture2D" uid="uid://rqlxn4ibrmap" path="res://refs/enemy/enemy_idle.png" id="1_gerxk"]
@@ -30,9 +30,13 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_034yr"]
+size = Vector2(144, 144)
+
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 position = Vector2(168, 72)
 script = ExtResource("1_ftf7f")
+grid_size = null
 metadata/_edit_group_ = true
 
 [node name="EMovementValidation" type="RayCast2D" parent="."]
@@ -53,3 +57,13 @@ autoplay = "default"
 frame_progress = 0.193744
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="enemy_hitbox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+z_as_relative = false
+shape = SubResource("RectangleShape2D_034yr")
+
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]

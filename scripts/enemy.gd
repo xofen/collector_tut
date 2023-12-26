@@ -11,6 +11,9 @@ var vectors : PackedVector2Array = [Vector2(1,0),Vector2(-1,0),Vector2(0,1),Vect
 var valid_directions : Array = []
 var old_position : Vector2
 
+var health = 100
+var player_in_range = false
+
 
 func wander() -> void:
 	for vector in vectors:
@@ -45,3 +48,23 @@ func on_movement_tween_finished() -> void:
 
 func on_start_move() -> void:
 	wander()
+
+
+func _on_enemy_hitbox_body_entered(body):
+	if body.is_in_group("Player"):
+		player_in_range = true
+		capturar_galinha()
+
+
+
+func _on_enemy_hitbox_body_exited(body):
+	if body.is_in_group("Player"):
+		player_in_range = false
+
+
+func capturar_galinha():
+	if player_in_range and global.player_in_range:
+		health -= 100
+		print(health)
+		print("pegou")
+		
