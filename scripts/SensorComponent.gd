@@ -9,7 +9,6 @@ func _on_body_entered(body):
 	for group in groups:
 		if !body.is_in_group(group) and !detected.has(body) and body is CharacterBody2D:
 			detected.append(body)
-			print(detected)
 
 
 func _on_body_exited(body):
@@ -19,7 +18,6 @@ func _on_body_exited(body):
 
 func set_groups(groups_array: Array) -> void:
 	groups = groups_array
-	print(groups)
 
 
 func check_area() -> bool:

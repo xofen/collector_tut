@@ -46,14 +46,12 @@ func wander() -> void:
 	var isRight = direction.x < 0
 	sprite_2d.flip_h = isRight
 	
-	print("wondeeeer...")
 
 
 func move_towards(target : PhysicsBody2D) -> void:
 	validate_directions()
 	var max_distance : float = INF
 	var movement_direction : Vector2
-	print("directionsssss...")
 	for direction in valid_directions:
 		direction = direction * grid_size + global_position
 		var distance = direction.distance_to(target.global_position)
@@ -72,18 +70,10 @@ func on_movement_tween_finished() -> void:
 func on_start_move() -> void:
 	if sensor.check_area():
 		var target : PhysicsBody2D = sensor.return_bodies()[0]
-		print(target)
 		if !eye_sight.check_if_visible(target):
-			print("CHECKECD")
 			move_towards(target)
-			print("seguindo...")
 		else:
 			wander()
 	else:
 		wander()
 
-
-
-
-#func _on_sensor_component_body_entered(body):
-	#pass # Replace with function body.
